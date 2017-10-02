@@ -684,7 +684,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
 - (void)imageCropViewControllerDidCancelCrop:
 (RSKImageCropViewController *)controller {
     [self dismissCropper:controller selectionDone:NO completion:[self waitAnimationEnd:^{
-        if (self.currentSelectionMode == CROPPING) {
+        if (self.currentSelectionMode == CROPPING || self.currentSelectionMode == CAMERA) {
             self.reject(ERROR_PICKER_CANCEL_KEY, ERROR_PICKER_CANCEL_MSG, nil);
         }
     }]];
